@@ -1,0 +1,35 @@
+#!/bin/sh
+ttynum=`tty | grep -o ".$"`
+displaynum=$(($ttynum - 1))
+mode=${1:-intel}
+
+function nv_load {
+  sudo rmmod bbswitch
+  sudo modprobe nvidia 
+  sudo modprobe nvidia-modeset
+  sudo modprobe nvidia-drm
+}
+
+function nv_unload {
+  sudo rmmod nvidia-drm
+  sudo rmmod nvidia-modeset
+  sudo rmmod nvidia 
+  sudo modprobe bbswitch
+}
+
+cmd="xinit /home/spheenik/.xinitrc $mode -- /usr/bin/X :$displaynum -configdir xorg.conf.d.$mode vt$ttynum"
+
+case $mode in
+nvidia)
+  nv_load
+  LD_LIBRARY_PATH=/opt/nvidia-gl/usr/lib:/opt/nvidia-gl/usr/lib32 $cmd
+  nv_unload
+  ;;
+*)
+  export VDPAU_DRIVER=va_gl
+  $cmd
+  ;;
+esac
+
+
+

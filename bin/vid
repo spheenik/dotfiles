@@ -1,0 +1,46 @@
+#!/bin/sh
+layout=${1}
+
+restartWm(){
+	sleep 0.5
+#	echo "awesome.restart()" | awesome-client
+}
+
+case ${layout} in	
+single) 
+	xrandr --output eDP-1 --auto --output HDMI-1 --off --dpi 192
+	restartWm
+	;;
+single-low) 
+	xrandr --output eDP-1 --mode 1920x1080 --output HDMI-1 --off --dpi 96
+	restartWm
+	;;
+proway-dev)
+	xrandr --output eDP-1 --mode 1920x1080 --pos 0x360 --output HDMI-1 --auto --pos 1920x0 --dpi 96
+	;;
+
+proway-beamer)
+	xrandr --output eDP-1 --mode 1920x1080 --pos 0x1080 --output HDMI-1 --mode 1920x1080 --pos 0x0 --dpi 96
+	;;
+
+home-dev)
+	xrandr --output eDP-1 --auto --output HDMI-1 --auto --panning 3840x2160+3840+0 --scale 2x2 --right-of eDP-1 --dpi 192
+	;;
+
+home-dev-low)
+	xrandr --output eDP-1 --mode 1920x1080 --output HDMI-1 --mode 1920x1080 --right-of eDP-1 --dpi 96
+	;;
+
+_completion)
+	echo single:single screen hi resolution 
+	echo single-low:single screen low resolution 
+	echo proway-dev:proway development 
+	echo proway-beamer:proway beamer 
+	echo home-dev:home development with hi res on notebook
+	echo home-dev-low:home development with low res on notebook
+	;;
+esac
+
+#xrandr --output HDMI1 --auto --scale 2x2 --pos 3840x720 --output eDP1 --auto --pos 0x0
+#xrandr --output eDP1 --auto --output HDMI1 --auto --scale 2x2 --right-of eDP1
+#xrandr --output eDP1 --mode 1920x1080 --pos 0x360 --output HDMI1 --auto --pos 1920x0
