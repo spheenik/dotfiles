@@ -61,6 +61,7 @@ setopt HIST_IGNORE_SPACE
 export PATH=$HOME/bin:$PATH
 export WEBSPHERE_HOME=$HOME/servers/IBM/WebSphere
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+export LIBVIRT_DEFAULT_URI="qemu:///system"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -69,6 +70,8 @@ alias nvpacman='pacman --root /opt/nvidia-gl'
 
 alias dotfile='/usr/bin/git --git-dir=$HOME/.dotfiles/public --work-tree=$HOME'
 alias dotfile-private='/usr/bin/git --git-dir=$HOME/.dotfiles/private --work-tree=$HOME'
+
+alias qemu='qemu-system-x86_64'
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8

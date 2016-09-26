@@ -31,13 +31,23 @@ home-dev-low)
 	xrandr --output eDP-1 --mode 1920x1080 --output HDMI-1 --mode 1920x1080 --right-of eDP-1 --dpi 96
 	;;
 
-_completion)
+zoidberg)
+	xrandr --output HDMI-2 --mode 1920x1080 --output HDMI-3 --mode 1680x1050 --left-of HDMI-2 --dpi 96
+	;;
+
+zoidberg-single)
+	xrandr --output HDMI-2 --mode 1920x1080 --dpi 96
+	;;
+
+completion)
 	echo single:single screen hi resolution 
 	echo single-low:single screen low resolution 
 	echo proway-dev:proway development 
 	echo proway-beamer:proway beamer 
 	echo home-dev:home development with hi res on notebook
 	echo home-dev-low:home development with low res on notebook
+	echo zoidberg:default dual screen setup
+	echo zoidberg-single:Windows-Linux
 	;;
 esac
 
