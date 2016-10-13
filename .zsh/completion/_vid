@@ -1,0 +1,14 @@
+#compdef vid
+_vid() {
+	local -a commands
+	commands=("${(@f)$(vid _completion)}")
+
+	if (( CURRENT == 2 )); then
+		_describe -t commands 'commands' commands
+	fi
+
+	return 0
+}
+
+_vid
+
