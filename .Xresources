@@ -17,6 +17,22 @@ URxvt.matcher.button: 1
 URxvt.depth: 32
 URxvt.background: [85]#000000
 
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! User: spheenik
+! ------------------------------------------------------------------------------
+! "Color scheme for normal row" Set from: File
+rofi.color-normal:                   argb:00000000,  #eee8d5 , argb:00000000,  #00BCD4 ,  #002b36
+! "Color scheme for urgent row" Set from: File
+rofi.color-urgent:                   argb:00000000,  #F99157 , argb:00000000,  #F99157 ,  #002b36
+! "Color scheme for active row" Set from: File
+rofi.color-active:                   argb:00000000,  #6699CC , argb:00000000,  #6699CC ,  #002b36
+! "Color scheme window" Set from: File
+rofi.color-window:                   argb:F0000000,  #495f6c ,  #00BCD4
+! "Separator style (none, dash, solid)" Set from: File
+rofi.separator-style:                solid
+
+
 !!SOLARIZED HEX     16/8 TERMCOL  XTERM/HEX   L*A*B      RGB         HSB
 !!--------- ------- ---- -------  ----------- ---------- ----------- -----------
 !!base03    #002b36  8/4 brblack  234 #1c1c1c 15 -12 -12   0  43  54 193 100  21
