@@ -1,6 +1,7 @@
 return {
 
 	startup = {
+		"setxkbmap -layout de"
 	},
 
 	modes = {
@@ -14,7 +15,7 @@ return {
 		{
 			name = "single",
 			description = "single display on the left",
-			cmd = "xrandr --output HDMI-3 --mode 1680x1050 --output HDMI-2 --off",
+			cmd = "--output HDMI-3 --mode 1680x1050 --output HDMI-2 --off",
 			dpi = 96,
 		},
 	},
