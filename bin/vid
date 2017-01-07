@@ -6,37 +6,50 @@ restartWm(){
 #	echo "awesome.restart()" | awesome-client
 }
 
+xftDpi(){
+	echo Xft.dpi: $1 | xrdb -merge
+}
+
+
 case ${layout} in	
 single) 
 	xrandr --output eDP-1 --auto --output HDMI-1 --off --dpi 192
+	xftDpi 192
 	restartWm
 	;;
 single-low) 
 	xrandr --output eDP-1 --mode 1920x1080 --output HDMI-1 --off --dpi 96
+	xftDpi 96
 	restartWm
 	;;
 proway-dev)
 	xrandr --output eDP-1 --mode 1920x1080 --pos 0x360 --output HDMI-1 --auto --pos 1920x0 --dpi 96
+	xftDpi 96
 	;;
 
 proway-beamer)
 	xrandr --output eDP-1 --mode 1920x1080 --pos 0x1080 --output HDMI-1 --mode 1920x1080 --pos 0x0 --dpi 96
+	xftDpi 96
 	;;
 
 home-dev)
 	xrandr --output eDP-1 --auto --output HDMI-1 --auto --panning 3840x2160+3840+0 --scale 2x2 --right-of eDP-1 --dpi 192
+	xftDpi 192
 	;;
 
 home-dev-low)
 	xrandr --output eDP-1 --mode 1920x1080 --output HDMI-1 --mode 1920x1080 --right-of eDP-1 --dpi 96
+	xftDpi 96
 	;;
 
 zoidberg)
 	xrandr --output HDMI-3 --mode 1680x1050 --primary --output HDMI-2 --mode 1920x1080 --right-of HDMI-3 --dpi 96
+	xftDpi 96
 	;;
 
 zoidberg-single)
 	xrandr --output HDMI-3 --mode 1680x1050 --output HDMI-2 --off --dpi 96
+	xftDpi 96
 	;;
 
 completion)
