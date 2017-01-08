@@ -17,9 +17,12 @@ function readConfig()
 end
 
 function applyMode(mode)
-	os.execute("xrandr " .. mode.cmd .. " --dpi " .. mode.dpi)
-	os.execute("echo Xft.dpi: " .. mode.dpi .. " | xrdb -merge")
-	os.execute("echo rofi.dpi: " .. mode.dpi .. " | xrdb -merge")
+	local dpi = mode.scale * 96
+	os.execute('xrandr ' .. mode.cmd .. ' --dpi ' .. dpi)
+	os.execute('echo Xft.dpi: ' .. dpi .. ' | xrdb -merge')
+	os.execute('echo rofi.dpi: ' .. dpi .. ' | xrdb -merge')
+	os.execute('gsettings set org.gnome.desktop.interface scaling-factor ' .. mode.scale)
+	os.execute('echo "awesome.restart()" | awesome-client 2>/dev/null')
 end
 
 function executeCommands(commands)
