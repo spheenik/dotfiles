@@ -37,7 +37,7 @@ $HOME/bin/vid init
 systemctl --user start 1passwordagent
 systemctl --user start dropbox
 
-compton -b &
+compton -b
 exec awesome
 
 systemctl --user stop dropbox
