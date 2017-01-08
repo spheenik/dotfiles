@@ -34,6 +34,8 @@ fi
 
 $HOME/bin/vid init
 
+/usr/lib/gnome-settings-daemon/gnome-settings-daemon &
+
 systemctl --user start 1passwordagent
 systemctl --user start dropbox
 
