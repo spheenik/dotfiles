@@ -46,8 +46,21 @@ local config = readConfig()
 local cmd = arg[1]
 
 if not cmd then
-	print("usage")
+	print("usage: vid <mode>")
+    print("  default" .. ": " .. "use '" .. config.default .. "'")
+    for i,v in ipairs(config.modes) do
+        print("  " .. v.name .. ": " .. v.description)
+    end
 	return
+end
+
+if cmd == "_completion" then
+    local default = findMode(config, config.default)
+    print("default" .. ":" .. default.description)
+    for i,v in ipairs(config.modes) do
+        print(v.name .. ":" .. v.description)
+    end
+    return
 end
 
 if cmd == "init" then
@@ -60,5 +73,13 @@ if cmd == "default" then
 	cmd = config.default
 end
 
+local mode = findMode(config, cmd)
+
+if mode == nil then
+    print("unknown mode '" .. cmd .. "'")
+    return
+end
+
 applyMode(findMode(config, cmd))	
 
+-- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=4:softtabstop=4
