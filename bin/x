@@ -22,7 +22,7 @@ cmd="xinit /home/spheenik/.xinitrc $mode -- /usr/bin/X :$displaynum -configdir x
 case $mode in
 nvidia)
   nv_load
-  LD_LIBRARY_PATH=/opt/nvidia-gl/usr/lib:/opt/nvidia-gl/usr/lib32 CONPREFIX=-1 $cmd
+  CONPREFIX=-1 $cmd
   nv_unload
   ;;
 *)

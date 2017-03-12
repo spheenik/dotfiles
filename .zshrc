@@ -66,7 +66,6 @@ export LIBVIRT_DEFAULT_URI="qemu:///system"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 alias sudo='sudo '
-alias nvpacman='pacman --root /opt/nvidia-gl'
 
 alias dotfile='/usr/bin/git --git-dir=$HOME/.dotfiles/public --work-tree=$HOME'
 alias dotfile-private='/usr/bin/git --git-dir=$HOME/.dotfiles/private --work-tree=$HOME'
