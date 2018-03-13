@@ -1,0 +1,4 @@
+#!/bin/sh
+[[ "$CL_JDK" == "" ]] && CL_JDK=$JAVA_HOME
+export CL_JDK
+exec /opt/jetbrains/clion/bin/clion.sh "$@"
