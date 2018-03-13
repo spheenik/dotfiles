@@ -37,6 +37,13 @@ return {
 			scale = 1,
 		},
 
+		{
+			name = "dojo-dev",
+			description = "development @ DOJO",
+			cmd = "--output HDMI${CONPREFIX}-1 --auto --pos 0x0 --output eDP${CONPREFIX}-1 --mode 1920x1080 --pos 2560x440",
+			scale = 1,
+		},
+
 	},
 
 	default = "single"

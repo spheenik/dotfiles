@@ -5,7 +5,7 @@ URxvt.scrollBar: false
 URxvt.cursorBlink: true
 URxvt.iso14755: false
 
-URxvt.perl-ext-common: default,clipboard,matcher
+URxvt.perl-ext-common: default,clipboard,matcher,font-size
 URxvt.keysym.C-C: perl:clipboard:copy
 URxvt.keysym.C-V: perl:clipboard:paste
 URxvt.clipboard.copycmd:  xclip -selection clipboard -i
@@ -13,6 +13,13 @@ URxvt.clipboard.pastecmd: xclip -selection clipboard -o
 URxvt.url-launcher: /usr/bin/firefox
 URxvt.matcher.button: 1
 URxvt.print-pipe: "cat > /dev/null"
+
+iURxvt.keysym.C-Up:     font-size:increase
+URxvt.keysym.C-Down:   font-size:decrease
+URxvt.keysym.C-S-Up:   font-size:incglobal
+URxvt.keysym.C-S-Down: font-size:decglobal
+URxvt.keysym.C-equal:  font-size:reset
+URxvt.keysym.C-slash:  font-size:show
 
 URxvt.depth: 32
 URxvt.background: [85]#000000

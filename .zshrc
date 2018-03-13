@@ -62,7 +62,7 @@ export PATH=$HOME/bin:$PATH
 export WEBSPHERE_HOME=$HOME/servers/IBM/WebSphere
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export LIBVIRT_DEFAULT_URI="qemu:///system"
-
+export MAVEN_OPTS="-Xmx1024m"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 alias sudo='sudo '
