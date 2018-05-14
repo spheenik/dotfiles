@@ -58,7 +58,7 @@ fpath=(/home/spheenik/.zsh/completion $fpath)
 # Don't record an entry starting with a space.
 setopt histignorespace
 
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/bin:$HOME/.cargo/bin:$PATH
 export WEBSPHERE_HOME=$HOME/servers/IBM/WebSphere
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export LIBVIRT_DEFAULT_URI="qemu:///system"
