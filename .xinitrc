@@ -40,6 +40,7 @@ $HOME/bin/vid init
 /usr/lib/gnome-settings-daemon/gnome-settings-daemon &
 /usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets
 
+(sleep 2s; /usr/bin/udiskie --no-notify --tray) &
 (sleep 2s; /usr/bin/nextcloud) &
 (sleep 2s; /usr/bin/enpass) &
 
