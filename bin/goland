@@ -1,4 +1,0 @@
-#!/bin/sh
-[[ "$IDEA_JDK" == "" ]] && IDEA_JDK=$JAVA_HOME
-export IDEA_JDK
-exec /opt/jetbrains/goland/bin/goland.sh "$@"

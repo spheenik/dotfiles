@@ -1,26 +1,35 @@
 return {
 
 	startup = {
-		"setxkbmap -layout de"
+		"setxkbmap -layout de",
+		"xset m 0/1 4"
 	},
 
 	modes = {
 		{
-			name = "mirrored",
-			description = "normal mirrored mode",
-			cmd = "--output HDMI-3 --mode 1680x1050 --primary --output HDMI-1 --mode 1920x1080 --right-of HDMI-3 --output HDMI-2 --off",
+			name = "standard",
+			description = "normal mode",
+			cmd = "--output HDMI-A-0 --mode 1920x1080 --primary --output DisplayPort-0 --mode 2560x1440 --right-of HDMI-A-0",
 			scale = 1,
 		},
 
 		{
 			name = "single",
 			description = "single display on the left",
-			cmd = "--output HDMI-3 --mode 1680x1050 --output HDMI-1 --off --output HDMI-2 --off",
+			cmd = "--output HDMI-A-0 --mode 1920x1080 --primary --output DisplayPort-0 --off",
 			scale = 1,
 		},
+
+		{
+			name = "single-right",
+			description = "single display on the right",
+			cmd = "--output HDMI-A-0 --off --output DisplayPort-0 --mode 2560x1440",
+			scale = 1,
+		},
+
 	},
 
-	default = "mirrored"
+	default = "standard"
 
 }
 

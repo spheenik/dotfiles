@@ -32,6 +32,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+export WINEDLLOVERRIDES="winemenubuilder.exe=d"
 export XDG_CURRENT_DESKTOP=GNOME
 #export QT_AUTO_SCREEN_SCALE_FACTOR=1
 
@@ -39,11 +40,13 @@ $HOME/bin/vid init
 
 /usr/lib/gnome-settings-daemon/gnome-settings-daemon &
 /usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
-(sleep 2s; /usr/bin/udiskie --no-notify --tray) &
+(sleep 2s; /usr/bin/udiskie --no-automount --no-notify --tray) &
 (sleep 2s; /usr/bin/nextcloud) &
-(sleep 2s; /usr/bin/enpass) &
+(sleep 2s; /usr/bin/enpass -minimize) &
+(sleep 2s; /home/spheenik/bin/jetbrains-toolbox --minimize) &
 
-compton -b
+compton &
 exec awesome
 
