@@ -1,0 +1,2 @@
+#!/bin/sh
+exec /usr/bin/systemd-cat -t xorg-${XDG_VTNR} /usr/bin/Xorg -nolisten tcp -keeptty "$@" "vt${XDG_VTNR}"
