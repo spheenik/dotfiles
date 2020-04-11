@@ -38,15 +38,33 @@ export XDG_CURRENT_DESKTOP=GNOME
 
 $HOME/bin/vid init
 
-/usr/lib/gnome-settings-daemon/gnome-settings-daemon &
-/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+(exec picom) &
 
-(sleep 2s; /usr/bin/udiskie --no-automount --no-notify --tray) &
-(sleep 2s; /usr/bin/nextcloud) &
-(sleep 2s; /usr/bin/enpass -minimize) &
-(sleep 2s; /home/spheenik/bin/jetbrains-toolbox --minimize) &
+(exec /usr/lib/gsd-a11y-settings) &
+(exec /usr/lib/gsd-color) &
+(exec /usr/lib/gsd-datetime) &
+(exec /usr/lib/gsd-housekeeping) &
+(exec /usr/lib/gsd-keyboard) &
+(exec /usr/lib/gsd-media-keys) &
+(exec /usr/lib/gsd-power) &
+(exec /usr/lib/gsd-print-notifications) &
+(exec /usr/lib/gsd-rfkill) &
+(exec /usr/lib/gsd-screensaver-proxy) &
+(exec /usr/lib/gsd-sharing) &
+(exec /usr/lib/gsd-smartcard) &
+(exec /usr/lib/gsd-sound) &
+(exec /usr/lib/gsd-usb-protection) &
+(exec /usr/lib/gsd-wacom) &
+(exec /usr/lib/gsd-wwan) &
+(exec /usr/lib/gsd-xsettings) &
 
-compton &
+(exec /usr/bin/gnome-keyring-daemon -f--components=pkcs11,secrets) &
+(exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1) &
+
+(sleep 2s; exec /usr/bin/udiskie --no-automount --no-notify --tray) &
+(sleep 2s; exec /usr/bin/nextcloud) &
+(sleep 2s; exec /usr/bin/enpass -minimize) &
+(sleep 2s; exec /home/spheenik/bin/jetbrains-toolbox --minimize) &
+
 exec awesome
 
