@@ -1,34 +1,37 @@
 #!/bin/sh
-ttynum=`tty | grep -o ".$"`
-displaynum=$(($ttynum - 1))
-mode=${1:-intel}
 
 function nv_load {
-  sudo rmmod bbswitch
-  sudo modprobe nvidia 
-  sudo modprobe nvidia-modeset
-  sudo modprobe nvidia-drm
+	sudo rmmod bbswitch
+	sudo modprobe nvidia 
+	sudo modprobe nvidia-modeset
+	sudo modprobe nvidia-drm
 }
 
 function nv_unload {
-  sudo rmmod nvidia-drm
-  sudo rmmod nvidia-modeset
-  sudo rmmod nvidia 
-  sudo modprobe bbswitch
+	sudo rmmod nvidia-drm
+	sudo rmmod nvidia-modeset
+	sudo rmmod nvidia 
+	sudo modprobe bbswitch
 }
 
-cmd="exec xinit /home/spheenik/.xinitrc $mode -- /usr/bin/X :$displaynum -configdir xorg.conf.d.$mode vt$ttynum"
+DISPLAYNUM=$((${XDG_VTNR} - 1))
+XMODE=${1:-default}
 
-case $mode in
+case $XMODE in
+
 nvidia)
-  nv_load
-  CONPREFIX=-1 $cmd
-  nv_unload
-  ;;
+	nv_load
+	XMODE=$XMODE CONPREFIX=-1 xinit -- -configdir xorg.conf.d.nvidia :${DISPLAYNUM}
+	nv_unload
+	;;
+	
+default)
+	XMODE=$XMODE CONPREFIX= xinit -- :${DISPLAYNUM}
+	;;
+  
 *)
-  CONPREFIX= $cmd
-  ;;
+  	echo "unknown mode"
+	;;
+	
 esac
-
-
 
