@@ -1,6 +1,9 @@
 # Path to your oh-my-zsh installation.
 ZSH=/usr/share/oh-my-zsh/
 
+# disable checking completion directory permissions
+ZSH_DISABLE_COMPFIX=true
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -58,7 +61,7 @@ fpath=(/home/spheenik/.zsh/completion $fpath)
 # Don't record an entry starting with a space.
 setopt histignorespace
 
-export PATH=$HOME/bin:$HOME/.cargo/bin:$PATH
+export PATH=$HOME/.local/bin:$HOME/bin:$HOME/.cargo/bin:$PATH
 export WEBSPHERE_HOME=$HOME/servers/IBM/WebSphere
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export LIBVIRT_DEFAULT_URI="qemu:///system"
@@ -104,3 +107,7 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
 fi
 
 source $ZSH/oh-my-zsh.sh
+
+autoload -U +X bashcompinit && bashcompinit
+source /etc/bash_completion.d/* &> /dev/null
+
