@@ -1,5 +1,8 @@
 #!/bin/sh
 
+export MOZ_X11_EGL=1
+export GTK_THEME=Arc-Darker
+
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources

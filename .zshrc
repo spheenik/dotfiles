@@ -62,11 +62,14 @@ fpath=(/home/spheenik/.zsh/completion $fpath)
 setopt histignorespace
 
 export PATH=$HOME/.local/bin:$HOME/bin:$HOME/.cargo/bin:$PATH
-export WEBSPHERE_HOME=$HOME/servers/IBM/WebSphere
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export LIBVIRT_DEFAULT_URI="qemu:///system"
+export JAVA_HOME=/usr/lib/jvm/default
 export MAVEN_OPTS="-Xmx1024m"
-# export MANPATH="/usr/local/man:$MANPATH"
+
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.local/share
 
 alias sudo='sudo '
 
@@ -109,5 +112,6 @@ fi
 source $ZSH/oh-my-zsh.sh
 
 autoload -U +X bashcompinit && bashcompinit
-source /etc/bash_completion.d/* &> /dev/null
 
+# fix annoying urxvt bug
+#clear

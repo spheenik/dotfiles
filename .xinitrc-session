@@ -28,11 +28,13 @@ $HOME/bin/vid init
 
 (exec /usr/bin/gnome-keyring-daemon -f--components=pkcs11,secrets) &
 (exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1) &
+(exec /usr/bin/pactl upload-sample /home/spheenik/.config/pulse/volume.wav volumewav) &
 
 (sleep 2s; exec /usr/bin/udiskie --no-automount --no-notify --tray) &
 (sleep 2s; exec /usr/bin/nextcloud) &
 (sleep 2s; exec /usr/bin/enpass -minimize) &
 (sleep 2s; exec /home/spheenik/bin/jetbrains-toolbox --minimize) &
+(sleep 2s; exec /usr/bin/jamesdsp -t) &
 
 exec /usr/bin/systemd-cat -t awesome-${XDG_VTNR} /usr/bin/awesome
 

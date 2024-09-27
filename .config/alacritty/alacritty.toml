@@ -1,0 +1,82 @@
+live_config_reload=true
+
+[font]
+normal = { family = 'Hack', style = 'Regular' }
+size = 10.5
+offset = { x = 1, y = 1 }
+
+[window]
+opacity = 0.8
+padding = { x = 2, y = 2 }
+decorations = 'None'
+
+[cursor]
+style = { shape = 'Block', blinking = 'Always' }
+unfocused_hollow = true
+blink_timeout = 0
+
+[colors.primary]
+#background = '#000000'
+
+background= '0x101216'
+foreground= '0xd3dae3'
+
+[colors.normal]
+#black   = '#000000'
+#red     = '#e65a5a'
+#green   = '#a0e65a'
+#yellow  = '#e6d45a'
+#blue    = '#5aa0e6'
+#magenta = '#e65aa9'
+#cyan    = '#5adce6'
+#white   = '#e6e6e3'
+
+black=   '0x4b5164'
+red=     '0xe14245'
+green=   '0x5ca75b'
+yellow=  '0xf6ab32'
+blue=    '0x4877b1'
+magenta= '0xa660c3'
+cyan=    '0x5294e2'
+white=   '0xa9a9aa'
+
+[colors.dim]
+#black   = '#000000'
+#red     = '#b31212'
+#green   = '#62b312'
+#yellow  = '#b39d12'
+#blue    = '#1456b3'
+#magenta = '#b31270'
+#cyan    = '#14a8b3'
+#white   = '#b3b37d'
+
+black=   '0x616981'
+red=     '0xe16f7e'
+green=   '0xadd488'
+yellow=  '0xfdc35f'
+blue=    '0x8ca9bf'
+magenta= '0xe2afec'
+cyan=    '0x73c5e2'
+white=   '0xfcfcfc'
+
+
+
+[colors.bright]
+#black   = '#ffffff'
+#red     = '#e65a5a'
+#green   = '#a0e65a'
+#yellow  = '#e6d45a'
+#blue    = '#5aa0e6'
+#magenta = '#e65aa9'
+#cyan    = '#5adce6'
+#white   = '#e6e6e3'
+
+black=   '0x616981'
+red=     '0xe16f7e'
+green=   '0xadd488'
+yellow=  '0xfdc35f'
+blue=    '0x8ca9bf'
+magenta= '0xe2afec'
+cyan=    '0x73c5e2'
+white=   '0xfcfcfc'
+
