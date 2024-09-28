@@ -10,6 +10,11 @@ opacity = 0.8
 padding = { x = 2, y = 2 }
 decorations = 'None'
 
+[bell]
+animation = 'EaseOutQuad'
+color = '#444444'
+duration = 0
+
 [cursor]
 style = { shape = 'Block', blinking = 'Always' }
 unfocused_hollow = true

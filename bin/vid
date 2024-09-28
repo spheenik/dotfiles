@@ -12,16 +12,24 @@ function getHostName()
 	return hostName
 end
 
+function getTextScaling()
+    local scaling = string.gsub(readProcess("gsettings get org.gnome.desktop.interface text-scaling-factor"), "\n$", "")
+	return tonumber(scaling)
+end
+
+function getDpi()
+    return math.floor(getTextScaling() * 96)
+end
+
 function readConfig() 
 	return dofile(os.getenv("HOME") .. "/.vid/modes." .. getHostName() .. ".lua")
 end
 
 function applyMode(mode)
-	local dpi = mode.scale * 96
+	local dpi = getDpi()
+    print(dpi)
 	os.execute('xrandr ' .. mode.cmd .. ' --dpi ' .. dpi)
 	os.execute('echo Xft.dpi: ' .. dpi .. ' | xrdb -merge')
-	os.execute('echo rofi.dpi: ' .. dpi .. ' | xrdb -merge')
-	os.execute('gsettings set org.gnome.desktop.interface scaling-factor ' .. mode.scale)
 	os.execute('echo "awesome.restart()" | awesome-client 2>/dev/null')
 end
 
